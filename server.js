@@ -1,10 +1,8 @@
 const express = require('express'),
   bodyParser = require('body-parser'),
   mongoose = require('mongoose'),
-  Grid = require('gridfs-stream'),
   app = express(),
   methodOverride = require('method-override'),
-  apiPort = 3000,
   Blog = require('./models/blogpost'),
   passport = require('passport'),
   LocalStrategy = require('passport-local'),
@@ -66,6 +64,6 @@ const indexRoutes = require('./Routes/index')
 
 app.use(indexRoutes);
 
-app.listen(process.env.PORT || apiPort, process.env.IP, () => {
+app.listen(process.env.PORT || 3000, process.env.IP, () => {
   console.log(`Server is running!`);
 })

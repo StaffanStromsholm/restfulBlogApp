@@ -22,6 +22,7 @@ router.get("/blogs", (req, res) => {
         if (err) {
             console.log("error")
         } else {
+            console.log(blogs)
             res.render("index", { blogs: blogs })
         }
     })
