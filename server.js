@@ -30,7 +30,7 @@ mongoose.connect(mongoURI, {
 // const conn = mongoose.createConnection(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Init gfs
-let gfs;
+// let gfs;
 
 // conn.once('open', () => {
 //   // Init stream
@@ -69,5 +69,3 @@ app.use(indexRoutes);
 app.listen(process.env.PORT || apiPort, process.env.IP, () => {
   console.log(`Server is running!`);
 })
-
-module.exports = mongoURI;
