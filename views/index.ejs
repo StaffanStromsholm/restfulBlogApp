@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Staffan Strömsholms Blog</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/stylesheets/main.css">
     <script src="https://kit.fontawesome.com/1eb4659c58.js" crossorigin="anonymous"></script>
     <style type="text/css">
 
@@ -20,6 +21,7 @@
             color: white;
             background-image: url("https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
             background-size: cover;
+            box-shadow: 3px 7px 8px #888888;
         }
 
         .overlay {
@@ -35,6 +37,10 @@
 
         .blogposts {
             padding-bottom: 10vh;
+        }
+
+        .card {
+            box-shadow: 3px 7px 8px #888888;
         }
 
         .loginlink {
@@ -58,6 +64,13 @@
 
         .caption {
             overflow-wrap: break-word;
+        }
+        .btn{
+            background-color: orange;
+            border: none;
+            border-radius: 0px;
+            float: right;
+            margin-bottom: 10px; 
         }
     </style>
 </head>
@@ -94,17 +107,20 @@
  
        </div>
    </div>
- 
+   <div class="container">
+    <hr>
+   </div>
+
  
  
    <div class="container blogposts" style="display:flex; flex-wrap: wrap;">
-       <% for(var i = 0; i < blogs.length; i++){ %>
+       <% for(var i = blogs.length -1 ; i > 0; i--){ %>
        <div class="card" style="display: block;
        margin-left: auto;
        margin-right: auto;
        margin-bottom: 10px;
        width: 75%;">
-           <img class="card-img-top" src="<%= blogs[i].image %>" alt="Card image cap">
+           <a href="/blogs/<%= blogs[i]._id%>"><img class="card-img-top" src="<%= blogs[i].image %>" alt="Card image cap"></a>
            <div class="card-body">
                <span class="date"><em><%= blogs[i].created.toDateString() %></em></span>
                <br>
