@@ -4,44 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Staffan Strömsholms Blog</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://kit.fontawesome.com/1eb4659c58.js" crossorigin="anonymous"></script>
-    <style type="text/css">
-        .blogpost {
-            width: 100%;
-        }
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <title>Staffan Strömsholms Blog</title>
 
-        .date {
-            float: right;
-            color: orange;
-        }
-
-        .thumbnail {
-            width: 100%;
-        }
-       
-
-        .thumbnail img {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 100%;
-        }
-       
-
-        .caption {
-            overflow-wrap: break-word;
-        }
-
-        .btn {
-            background-color: orange;
-            border-radius: 0px;
-            border: none;
-            float: right;
-            margin-bottom: 10px;
-        }
-    </style>
 </head>
 
 <body>
@@ -54,7 +20,7 @@
 
     <div class="container blogposts" style="display:flex; flex-wrap: wrap;">
         <div class="thumbnail">
-            <div class="blogposts"><span class="date"><em><%= blog.created.toDateString() %></em></span>
+            <div class="blogposts"><br><span class="date"><em><%= blog.created.toDateString() %></em></span>
                 <div class="caption">
                     <br>
                     <h2><%= blog.title %></h2>
@@ -62,19 +28,20 @@
                 </div>
                 <img src=<%= blog.image %> alt="">
                 <br>
+                <br>
                 <p><%= blog.body %></p>
                 <a type="button" class="btn btn-primary" href="/blogs">Back</a>
                 <% if(currentUser){ %>
-                    <a type="button" class="btn btn-warning" href="/blogs/<%= blog._id%>/edit">Edit</a>
-                    <form action="/blogs/<%= blog._id%>?_method=DELETE" class="delete-form" method="POST">
-                        <button class="btn btn-danger">Delete</button>
-                    </form>
-                    
+                <a type="button" class="btn btn-warning" href="/blogs/<%= blog._id%>/edit">Edit</a>
+                <form action="/blogs/<%= blog._id%>?_method=DELETE" class="delete-form" method="POST">
+                    <button class="btn btn-danger">Delete</button>
+                </form>
+
                 <% } %>
                 <br>
             </div>
         </div>
     </div>
 
-
+    <script src="https://kit.fontawesome.com/1eb4659c58.js" crossorigin="anonymous"></script>
     <%- include('./partials/footer') %>

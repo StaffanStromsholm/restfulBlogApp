@@ -24,18 +24,6 @@ mongoose.connect(mongoURI, {
     console.log("error", err.message)
 });
 
-// Create mongo connection
-// const conn = mongoose.createConnection(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
-
-// Init gfs
-// let gfs;
-
-// conn.once('open', () => {
-//   // Init stream
-//   gfs = Grid(conn.db, mongoose.mongo);
-//   gfs.collection('uploads');
-// });
-
 //PASSPORT CONFIGURATION
 app.use(require("express-session")({
   secret: "Once again Rusty wins cutest dog!",
@@ -55,9 +43,8 @@ app.use(function (req, res, next) {
 })
 
 app.set('view engine', 'ejs');
-app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static('public'));
 app.use(methodOverride("_method"));
 
 const indexRoutes = require('./Routes/index')
